@@ -16,20 +16,25 @@
 
 class Block {
 public:
-	Block(sf::Color blockColor);
+	Block(sf::Color blockColor, sf::Vector2<int>[4]);
 	virtual ~Block();
 
 	void setGridPosition(sf::Vector2<sf::Uint32>);
 	void setVelocity(sf::Vector2<int>);
+
+	Square* getSquares();
+
+	void rotate();
+	void update();
 private:
-	Square* squares[4];
-	sf::Vector2<sf::Uint16> squareLocations[4];
+	Square* squares;
+	sf::Vector2<int> squareLocations[4];
 
 	sf::Vector2<sf::Uint32> position;
 	sf::Vector2<int> velocity;
 
 protected:
-	void setShape(sf::Vector2<sf::Uint16>[4]);
+	void setShape(sf::Vector2<int>[4]);
 
 };
 
